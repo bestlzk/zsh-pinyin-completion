@@ -47,9 +47,9 @@ function _pinyin_comp()
     
     # zsocket 成功连接后，会将文件描述符自动存储在 REPLY 变量中    
     # 通信交互：发送请求并读取响应
-    # 协议格式：当前目录 + \0 + 查询字符串
+    # 协议格式：当前目录 + \x00 + 查询字符串
     export PINYIN_COMP_MODE="SERVER"
-    print -u $REPLY -n "${cwd}\0${query}"
+    print -u $REPLY -n "${cwd}"$'\x00'"${query}"
     local content=""
     while IFS= read -r -u $REPLY line || [[ -n "$line" ]]; do
         content+="$line"$'\n'
