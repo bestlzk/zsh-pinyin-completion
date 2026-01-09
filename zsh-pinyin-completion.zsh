@@ -5,7 +5,7 @@ _PINYIN_SCRIPT_PATH="${0:A:h}/pinyin-comp.js"
 
 # 后台启动 Node.js 服务
 function _pinyin_start_server() {
-    nohup node "$_PINYIN_SCRIPT_PATH" --server "$_PINYIN_SOCKET_PATH" >/dev/null 2>&1 &!
+    (nohup node "$_PINYIN_SCRIPT_PATH" --server "$_PINYIN_SOCKET_PATH" >/dev/null 2>&1 &)
 }
 
 # 核心补全函数
