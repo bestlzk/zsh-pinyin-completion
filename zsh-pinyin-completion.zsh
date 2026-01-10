@@ -61,4 +61,5 @@ function _pinyin_comp()
 # 注册 Zsh 补全钩子
 zstyle ':completion:*' user-expand _pinyin_comp
 zstyle ':completion:*:user-expand:*' tag-order expansions
+zstyle ':completion:*:user-expand:*' format '%B---- user_expansions%b'
 zstyle ':completion:*' completer _oldlist _expand _complete _match _user_expand
